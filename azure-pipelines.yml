@@ -48,7 +48,6 @@ jobs:
   - deployment: Deploy
     displayName: Deploy to PyPI
     dependsOn: Test
-    condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
     environment: deploy-env
     strategy:
       runOnce:
@@ -60,7 +59,9 @@ jobs:
                 versionSpec: '3.7'
                 architecture: 'x64'
 
-            - script: pip install -r requirements.txt
+            - script: |
+                ls
+                pip install -r requirements.txt
               displayName: 'Install Python Dependencies'
 
             - script: |
