@@ -19,6 +19,7 @@ jobs:
           PYTHON_VERSION: '3.7'
         Python38:
           PYTHON_VERSION: '3.8'
+      maxParallel: 0
     steps:
     - task: UsePythonVersion@0
       displayName: 'Select Python Version $(PYTHON_VERSION)'
