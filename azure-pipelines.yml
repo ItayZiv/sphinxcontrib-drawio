@@ -22,7 +22,7 @@ jobs:
       maxParallel: 0
     steps:
     - task: UsePythonVersion@0
-      displayName: 'Select Python Version $(PYTHON_VERSION)'
+      displayName: 'aaaaaaaSelect Python Version $(PYTHON_VERSION)'
       inputs:
         versionSpec: '$(PYTHON_VERSION)'
         architecture: 'x64'
