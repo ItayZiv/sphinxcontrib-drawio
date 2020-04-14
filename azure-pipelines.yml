@@ -25,9 +25,6 @@ jobs:
                 versionSpec: '3.7'
                 architecture: 'x64'
 
-            - script: |
-                ls
-
             - script: pip install -r requirements.txt
               displayName: 'Install Python Dependencies'
 
