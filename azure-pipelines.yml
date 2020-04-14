@@ -11,39 +11,6 @@ trigger:
       - refs/tags/*
 
 jobs:
-  - job: Test
-    strategy:
-      matrix:
-        Python36:
-          PYTHON_VERSION: '3.6'
-        Python37:
-          PYTHON_VERSION: '3.7'
-        Python38:
-          PYTHON_VERSION: '3.8'
-      maxParallel: 0
-    steps:
-    - task: UsePythonVersion@0
-      displayName: 'aaaaaaaSelect Python Version $(PYTHON_VERSION)'
-      inputs:
-        versionSpec: '$(PYTHON_VERSION)'
-        architecture: 'x64'
-
-    - script: |
-        pip install -r requirements.txt
-        pip install -r dev-requirements.txt
-        pip install .
-      displayName: 'Install Python Dependencies'
-
-    - script: |
-        wget -O drawio.deb https://github.com/jgraph/drawio-desktop/releases/download/v12.6.5/draw.io-amd64-12.6.5.deb
-        sudo apt install libasound2 ./drawio.deb
-      displayName: 'Install draw.io'
-
-    - script: sudo apt install xvfb
-      displayName: 'Install xvfb'
-
-    - script: python -m pytest -vv
-      displayName: 'Run Tests'
 
   - deployment: Deploy
     displayName: Deploy to PyPI
@@ -61,7 +28,8 @@ jobs:
 
             - script: |
                 ls
-                pip install -r requirements.txt
+
+            - script: pip install -r requirements.txt
               displayName: 'Install Python Dependencies'
 
             - script: |
