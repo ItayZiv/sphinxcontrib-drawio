@@ -66,6 +66,7 @@ jobs:
         displayName: 'Create ~/.pypirc for auth tokens'
 
       - script: |
+          python setup.py register https://test.pypi.org/legacy/
           python setup.py sdist
           python setup.py bdist_wheel
         displayName: 'Build Package'
