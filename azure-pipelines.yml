@@ -71,4 +71,4 @@ jobs:
           python setup.py bdist_wheel
         displayName: 'Build Package'
 
-      - script: twine upload --repository-url pypi dist/*
+      - script: twine upload --repository pypi dist/*
