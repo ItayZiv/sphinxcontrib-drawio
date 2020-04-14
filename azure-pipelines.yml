@@ -14,7 +14,6 @@ jobs:
 
   - deployment: Deploy
     displayName: Deploy to PyPI
-    dependsOn: Test
     environment: deploy-env
     strategy:
       runOnce:
