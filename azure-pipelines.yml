@@ -70,10 +70,8 @@ jobs:
         displayName: 'Create ~/.pypirc for auth tokens'
 
       - script: |
-          python setup.py register https://test.pypi.org/legacy/
           python setup.py sdist
           python setup.py bdist_wheel
-          python setup.py sdist bdist_wininst upload -r https://test.pypi.org/legacy/
         displayName: 'Build Package'
 
-      - script: twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+      - script: twine upload --repository-url pypi dist/*
